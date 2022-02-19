@@ -10,7 +10,12 @@ DATE : 19/02/2022 14:10
 import com.academicprogrammer.courses.ws.dto.SumRequest;
 import com.academicprogrammer.courses.ws.dto.SumResponse;
 
+import javax.jws.WebParam;
+import javax.jws.WebResult;
+import javax.jws.WebService;
+
+@WebService(name = "SumWebService")
 public interface SumWebService {
 
-    SumResponse calculateSum(SumRequest request);
+    @WebResult(name = "CalculateSumResponse") SumResponse calculateSum(@WebParam(name = "CalculateSumRequest") SumRequest request);
 }
