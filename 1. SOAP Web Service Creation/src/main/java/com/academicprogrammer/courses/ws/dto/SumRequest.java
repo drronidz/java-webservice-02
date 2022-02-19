@@ -7,9 +7,19 @@ Author Name : @ DRRONIDZ
 DATE : 19/02/2022 14:07
 */
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
+
+@XmlType(name = "SumRequest")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class SumRequest {
 
+    @XmlElement(name = "x")
     private int x;
+
+    @XmlElement(name = "y")
     private int y;
 
     public int getX() {
