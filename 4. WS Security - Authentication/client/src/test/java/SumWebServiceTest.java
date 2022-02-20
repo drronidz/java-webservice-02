@@ -9,6 +9,9 @@ import com.academicprogrammer.courses.ws.services.SumRequest;
 import com.academicprogrammer.courses.ws.services.SumResponse;
 import com.academicprogrammer.courses.ws.services.SumWebService;
 import com.academicprogrammer.courses.ws.services.SumWebServiceService;
+import org.apache.cxf.endpoint.Client;
+import org.apache.cxf.endpoint.Endpoint;
+import org.apache.cxf.frontend.ClientProxy;
 import org.junit.Test;
 
 import java.net.MalformedURLException;
@@ -24,6 +27,9 @@ public class SumWebServiceTest {
         try {
             SumWebServiceService service = new SumWebServiceService(new URL("http://localhost:8080/soap-web-service-creation/services/sumWebService?wsdl"));
             SumWebService port = service.getSumWebServicePort();
+
+            Client client = ClientProxy.getClient(port);
+            Endpoint endpoint = client.getEndpoint();
 
             SumRequest request = new SumRequest();
             request.setX(15);
