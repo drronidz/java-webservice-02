@@ -21,12 +21,13 @@
                     <map>
                         <entry key="action" value="UsernameToken"/>
                         <entry key="passwordType" value="PasswordText"/>
-                        <entry key="passwordCallbackRef" value-ref=""/>
+                        <entry key="passwordCallbackRef" value-ref="PasswordCallback"/>
                     </map>
                 </constructor-arg>
             </bean>
         </jaxws:inInterceptors>
     </jaxws:server>
+    <bean id="PasswordCallback" class="com.academicprogrammer.courses.ws.services.PasswordCallbackHandler"/>
     <cxf:bus>
         <cxf:features>
             <cxf:logging/>
