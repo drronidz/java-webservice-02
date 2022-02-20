@@ -30,7 +30,7 @@ public class SumWebServiceTest {
     @Test
     public void calculateSumShouldReturnValidResult() {
         try {
-            SumWebServiceService service = new SumWebServiceService(new URL("http://localhost:8080/soap-web-service-creation/services/sumWebService?wsdl"));
+            SumWebServiceService service = new SumWebServiceService(new URL("http://localhost:8080/provider/services/sumWebService?wsdl"));
             SumWebService port = service.getSumWebServicePort();
 
             Client client = ClientProxy.getClient(port);
@@ -38,6 +38,7 @@ public class SumWebServiceTest {
 
             HashMap<String, Object> outProperties = new HashMap<>();
             outProperties.put(WSHandlerConstants.ACTION, "UsernameToken");
+            outProperties.put(WSHandlerConstants.USER, "sum-username");
             outProperties.put(WSHandlerConstants.PASSWORD_TYPE, WSConstants.PW_TEXT);
             outProperties.put(WSHandlerConstants.PW_CALLBACK_CLASS, PasswordCallbackHandler.class.getName());
 
