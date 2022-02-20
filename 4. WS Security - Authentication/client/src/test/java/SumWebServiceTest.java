@@ -12,10 +12,12 @@ import com.academicprogrammer.courses.ws.services.SumWebServiceService;
 import org.apache.cxf.endpoint.Client;
 import org.apache.cxf.endpoint.Endpoint;
 import org.apache.cxf.frontend.ClientProxy;
+import org.apache.cxf.ws.security.wss4j.WSS4JOutInterceptor;
 import org.junit.Test;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.HashMap;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -30,6 +32,11 @@ public class SumWebServiceTest {
 
             Client client = ClientProxy.getClient(port);
             Endpoint endpoint = client.getEndpoint();
+
+            HashMap<String, Object> outProperties = new HashMap<>();
+            WSS4JOutInterceptor wss4JOutInterceptor = new WSS4JOutInterceptor(outProperties);
+
+            endpoint.getOutInterceptors().add(wss4JOutInterceptor);
 
             SumRequest request = new SumRequest();
             request.setX(15);
