@@ -9,10 +9,13 @@ import com.academicprogrammer.courses.ws.services.SumRequest;
 import com.academicprogrammer.courses.ws.services.SumResponse;
 import com.academicprogrammer.courses.ws.services.SumWebService;
 import com.academicprogrammer.courses.ws.services.SumWebServiceService;
+import com.academicprogrammer.ws.dto.services.PasswordCallbackHandler;
 import org.apache.cxf.endpoint.Client;
 import org.apache.cxf.endpoint.Endpoint;
 import org.apache.cxf.frontend.ClientProxy;
 import org.apache.cxf.ws.security.wss4j.WSS4JOutInterceptor;
+import org.apache.wss4j.dom.WSConstants;
+import org.apache.wss4j.dom.handler.WSHandlerConstants;
 import org.junit.Test;
 
 import java.net.MalformedURLException;
@@ -34,6 +37,10 @@ public class SumWebServiceTest {
             Endpoint endpoint = client.getEndpoint();
 
             HashMap<String, Object> outProperties = new HashMap<>();
+            outProperties.put(WSHandlerConstants.ACTION, "UsernameToken");
+            outProperties.put(WSHandlerConstants.PASSWORD_TYPE, WSConstants.PW_TEXT);
+            outProperties.put(WSHandlerConstants.PW_CALLBACK_CLASS, PasswordCallbackHandler.class.getName());
+
             WSS4JOutInterceptor wss4JOutInterceptor = new WSS4JOutInterceptor(outProperties);
 
             endpoint.getOutInterceptors().add(wss4JOutInterceptor);
