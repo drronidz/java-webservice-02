@@ -15,6 +15,17 @@
         <jaxws:serviceBean>
             <bean class="com.academicprogrammer.courses.ws.services.SumWebServiceImpl"/>
         </jaxws:serviceBean>
+        <jaxws:inInterceptors>
+            <bean class="org.apache.cxf.ws.security.wss4j.WSS4JInInterceptor">
+                <constructor-arg>
+                    <map>
+                        <entry key="action" value="UsernameToken"/>
+                        <entry key="passwordType" value="PasswordText"/>
+                        <entry key="passwordCallbackRef" value-ref=""/>
+                    </map>
+                </constructor-arg>
+            </bean>
+        </jaxws:inInterceptors>
     </jaxws:server>
     <cxf:bus>
         <cxf:features>
