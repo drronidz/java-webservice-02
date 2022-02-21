@@ -1,4 +1,4 @@
-package main.java.com.academicprogrammer.courses.ws.services;
+package com.academicprogrammer.courses.ws.services;
 
 /*
 PROJECT NAME : 4. WS Security - Authentication

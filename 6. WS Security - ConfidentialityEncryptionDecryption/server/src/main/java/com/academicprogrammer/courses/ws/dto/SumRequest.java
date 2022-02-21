@@ -1,4 +1,4 @@
-package main.java.com.academicprogrammer.courses.ws.dto;
+package com.academicprogrammer.courses.ws.dto;
 
 /*
 PROJECT NAME : 1. SOAP Web Service Creation
