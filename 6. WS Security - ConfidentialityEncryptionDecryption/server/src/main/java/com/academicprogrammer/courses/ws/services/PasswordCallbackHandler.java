@@ -22,6 +22,7 @@ public class PasswordCallbackHandler implements CallbackHandler {
 
     public PasswordCallbackHandler() {
         authCredentials.put("sum-username", "sum-password");
+        authCredentials.put("servicekey","serverkeypass");
     }
 
     @Override
