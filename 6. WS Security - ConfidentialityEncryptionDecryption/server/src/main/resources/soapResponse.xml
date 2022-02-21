@@ -1,0 +1,9 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <soap:Body>
+        <ns2:calculateSumResponse xmlns:ns2="http://services.ws.courses.academicprogrammer.com/">
+            <CalculateSumResponse>
+                <result>40</result>
+            </CalculateSumResponse>
+        </ns2:calculateSumResponse>
+    </soap:Body>
+</soap:Envelope>
