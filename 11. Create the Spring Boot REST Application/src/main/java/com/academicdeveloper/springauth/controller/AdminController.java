@@ -15,6 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class AdminController {
     @RequestMapping("/admin/{name}")
     public String sayHello(@PathVariable("name") String name) {
-        return "Hello " + name + " from " + AdminController.class.getName();
+        return "Hello " + name + " from " + AdminController.class.getSimpleName();
     }
 }
