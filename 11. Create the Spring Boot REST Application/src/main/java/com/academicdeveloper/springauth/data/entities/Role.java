@@ -8,6 +8,7 @@ DATE : 2/23/2022 11:32 PM
 */
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -15,7 +16,7 @@ import javax.persistence.ManyToMany;
 import java.util.Set;
 
 @Entity
-public class Role {
+public class Role implements GrantedAuthority {
 
     @Id
     private Integer id;
@@ -49,5 +50,10 @@ public class Role {
 
     public void setUsers(Set<User> users) {
         this.users = users;
+    }
+
+    @Override
+    public String getAuthority() {
+        return name;
     }
 }
