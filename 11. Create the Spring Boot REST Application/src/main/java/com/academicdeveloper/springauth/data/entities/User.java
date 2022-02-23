@@ -7,12 +7,23 @@ Author Name : @ DRRONIDZ
 DATE : 2/23/2022 11:31 PM
 */
 
+import org.hibernate.validator.constraints.NotEmpty;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Set;
 
+@Entity
 public class User {
+    @Id
     private Integer id;
+
+    @NotEmpty
     private String name;
+
+    @NotEmpty
     private String password;
+
     private Set<Role> roles;
 
     public Integer getId() {

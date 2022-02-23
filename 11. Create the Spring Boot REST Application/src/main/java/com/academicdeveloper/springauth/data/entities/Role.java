@@ -7,11 +7,19 @@ Author Name : @ DRRONIDZ
 DATE : 2/23/2022 11:32 PM
 */
 
+import org.hibernate.validator.constraints.NotEmpty;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Set;
 
+@Entity
 public class Role {
 
+    @Id
     private Integer id;
+
+    @NotEmpty
     private String name;
     private Set<User> users;
 
