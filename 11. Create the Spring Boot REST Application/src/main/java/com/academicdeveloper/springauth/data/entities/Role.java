@@ -11,6 +11,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import java.util.Set;
 
 @Entity
@@ -21,6 +22,8 @@ public class Role {
 
     @NotEmpty
     private String name;
+
+    @ManyToMany(mappedBy = "roles")
     private Set<User> users;
 
 
